@@ -78,6 +78,7 @@ action :before_restart do
     group 'root'
     mode '0644'
     variables(
+      :name => new_resource.name,
       :user => new_resource.owner,
       :group => new_resource.group,
       :node_dir => node['nodejs']['dir'],
