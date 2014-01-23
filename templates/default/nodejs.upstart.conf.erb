@@ -28,18 +28,10 @@ chdir <%= @app_dir %>
 # setgid <%= @group %>
 <% end -%>
 
+# Select environment, DB, PORT, LD_LIBRARY_PATH, etc.
 <% @environment.each do |key, value| -%>
 env <%= key %>="<%= value %>"
 <% end -%>
-
-## Select DB config to use
-#env DB=DEPLOY_DB
-#
-## Specify what port to listen on
-#env PORT=DEPLOY_PORT
-
-# Allow the Oracle drivers to load
-env LD_LIBRARY_PATH="$LD_LIBRARY_PATH:<%= @app_dir %>/node_modules/loopback-connector-oracle/node_modules/instantclient"
 
 # How to run the application
 script
