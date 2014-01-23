@@ -64,9 +64,9 @@ script
     #  - stderr redirection is done last so that we don't lose error messages
     #    related to the Upstart config itself
 <% if @user.nil? -%>
-    exec <%= node_dir %>/bin/npm start 2>&1
+    exec <%= @node_dir %>/bin/npm start 2>&1
 <% else -%>
-    exec su -m -s /bin/sh -c 'exec "$0" "$@"' <%= @user %> -- <%= node_dir %>/bin/npm start 2>&1
+    exec su -m -s /bin/sh -c 'exec "$0" "$@"' <%= @user %> -- <%= @node_dir %>/bin/npm start 2>&1
 <% end -%>
 
 end script
